@@ -46,14 +46,125 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmKategorija.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmKategorija.Designer.cs">
+      <DependentUpon>frmKategorija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKlijent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKlijent.Designer.cs">
+      <DependentUpon>frmKlijent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLokacija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLokacija.Designer.cs">
+      <DependentUpon>frmLokacija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModel.Designer.cs">
+      <DependentUpon>frmModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNajam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNajam.Designer.cs">
+      <DependentUpon>frmNajam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNačinPlaćanja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNačinPlaćanja.Designer.cs">
+      <DependentUpon>frmNačinPlaćanja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOsiguranje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOsiguranje.Designer.cs">
+      <DependentUpon>frmOsiguranje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOsiguranjeNajma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOsiguranjeNajma.Designer.cs">
+      <DependentUpon>frmOsiguranjeNajma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPočetna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPočetna.Designer.cs">
+      <DependentUpon>frmPočetna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProizvođač.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProizvođač.Designer.cs">
+      <DependentUpon>frmProizvođač.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRačun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRačun.Designer.cs">
+      <DependentUpon>frmRačun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpiti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpiti.Designer.cs">
+      <DependentUpon>frmUpiti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVozilo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVozilo.Designer.cs">
+      <DependentUpon>frmVozilo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmKategorija.resx">
+      <DependentUpon>frmKategorija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKlijent.resx">
+      <DependentUpon>frmKlijent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLokacija.resx">
+      <DependentUpon>frmLokacija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModel.resx">
+      <DependentUpon>frmModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNajam.resx">
+      <DependentUpon>frmNajam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNačinPlaćanja.resx">
+      <DependentUpon>frmNačinPlaćanja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOsiguranje.resx">
+      <DependentUpon>frmOsiguranje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOsiguranjeNajma.resx">
+      <DependentUpon>frmOsiguranjeNajma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPočetna.resx">
+      <DependentUpon>frmPočetna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProizvođač.resx">
+      <DependentUpon>frmProizvođač.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRačun.resx">
+      <DependentUpon>frmRačun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpiti.resx">
+      <DependentUpon>frmUpiti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVozilo.resx">
+      <DependentUpon>frmVozilo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
