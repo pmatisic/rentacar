@@ -35,6 +35,8 @@
             this.btnKreiraj = new System.Windows.Forms.Button();
             this.dgvKategorije = new System.Windows.Forms.DataGridView();
             this.tbNaziv = new System.Windows.Forms.TextBox();
+            this.tbID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKategorije)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +44,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(259, 331);
+            this.label1.Location = new System.Drawing.Point(284, 350);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 16);
@@ -111,17 +113,39 @@
             // tbNaziv
             // 
             this.tbNaziv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbNaziv.Location = new System.Drawing.Point(374, 328);
+            this.tbNaziv.Location = new System.Drawing.Point(399, 347);
             this.tbNaziv.Margin = new System.Windows.Forms.Padding(4);
             this.tbNaziv.Name = "tbNaziv";
             this.tbNaziv.Size = new System.Drawing.Size(132, 22);
             this.tbNaziv.TabIndex = 17;
+            // 
+            // tbID
+            // 
+            this.tbID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbID.Location = new System.Drawing.Point(399, 317);
+            this.tbID.Margin = new System.Windows.Forms.Padding(4);
+            this.tbID.Name = "tbID";
+            this.tbID.Size = new System.Drawing.Size(132, 22);
+            this.tbID.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(284, 320);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 16);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Šifra kategorije:";
             // 
             // frmKategorija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tbID);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.tbNaziv);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPrikazi);
@@ -131,6 +155,7 @@
             this.Controls.Add(this.dgvKategorije);
             this.Name = "frmKategorija";
             this.Text = "Kategorije";
+            this.Load += new System.EventHandler(this.frmKategorija_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKategorije)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -145,5 +170,7 @@
         private System.Windows.Forms.Button btnKreiraj;
         private System.Windows.Forms.DataGridView dgvKategorije;
         private System.Windows.Forms.TextBox tbNaziv;
+        private System.Windows.Forms.TextBox tbID;
+        private System.Windows.Forms.Label label2;
     }
 }
