@@ -45,6 +45,8 @@
             // dgvModeli
             // 
             this.dgvModeli.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvModeli.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvModeli.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvModeli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvModeli.Location = new System.Drawing.Point(298, 92);
             this.dgvModeli.Margin = new System.Windows.Forms.Padding(4);

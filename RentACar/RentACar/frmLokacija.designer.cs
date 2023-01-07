@@ -45,6 +45,8 @@
             // dgvLokacije
             // 
             this.dgvLokacije.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvLokacije.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLokacije.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLokacije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLokacije.Location = new System.Drawing.Point(277, 94);
             this.dgvLokacije.Margin = new System.Windows.Forms.Padding(4);

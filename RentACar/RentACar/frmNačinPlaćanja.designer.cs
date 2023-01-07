@@ -45,6 +45,8 @@
             // dgvNacini
             // 
             this.dgvNacini.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvNacini.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNacini.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvNacini.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNacini.Location = new System.Drawing.Point(351, 66);
             this.dgvNacini.Margin = new System.Windows.Forms.Padding(4);

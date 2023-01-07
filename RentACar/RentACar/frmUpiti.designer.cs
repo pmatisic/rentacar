@@ -55,6 +55,8 @@
             // dgvUpit4
             // 
             this.dgvUpit4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dgvUpit4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUpit4.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvUpit4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUpit4.Location = new System.Drawing.Point(57, 792);
             this.dgvUpit4.Margin = new System.Windows.Forms.Padding(4);
@@ -109,6 +111,8 @@
             // dgvUpit3
             // 
             this.dgvUpit3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dgvUpit3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUpit3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvUpit3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUpit3.Location = new System.Drawing.Point(55, 558);
             this.dgvUpit3.Margin = new System.Windows.Forms.Padding(4);
@@ -143,6 +147,8 @@
             // dgvUpit2
             // 
             this.dgvUpit2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dgvUpit2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUpit2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvUpit2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUpit2.Location = new System.Drawing.Point(55, 337);
             this.dgvUpit2.Margin = new System.Windows.Forms.Padding(4);
@@ -208,6 +214,8 @@
             // dgvUpit1
             // 
             this.dgvUpit1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dgvUpit1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUpit1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvUpit1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUpit1.Location = new System.Drawing.Point(55, 103);
             this.dgvUpit1.Margin = new System.Windows.Forms.Padding(4);

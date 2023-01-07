@@ -102,6 +102,8 @@
             // dgvKategorije
             // 
             this.dgvKategorije.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvKategorije.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvKategorije.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvKategorije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKategorije.Location = new System.Drawing.Point(186, 31);
             this.dgvKategorije.Margin = new System.Windows.Forms.Padding(4);
