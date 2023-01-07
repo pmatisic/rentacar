@@ -7,9 +7,6 @@ create table osiguranje
     polica          varchar(255)
 );
 
-alter table osiguranje
-    owner to postgres;
-
 create table nacinplacanja
 (
     "IDnacinplacanja" serial
@@ -17,9 +14,6 @@ create table nacinplacanja
     naziv             varchar(255) not null,
     opis              varchar(255) not null
 );
-
-alter table nacinplacanja
-    owner to postgres;
 
 create table lokacija
 (
@@ -29,9 +23,6 @@ create table lokacija
     grad         varchar(255) not null
 );
 
-alter table lokacija
-    owner to postgres;
-
 create table kategorija
 (
     "IDkategorija" serial
@@ -39,18 +30,12 @@ create table kategorija
     naziv          varchar(255) not null
 );
 
-alter table kategorija
-    owner to postgres;
-
 create table proizvodac
 (
     "IDproizvodac" serial
         primary key,
     naziv          varchar(255) not null
 );
-
-alter table proizvodac
-    owner to postgres;
 
 create table klijent
 (
@@ -66,9 +51,6 @@ create table klijent
     brojvozackedozvole integer      not null
 );
 
-alter table klijent
-    owner to postgres;
-
 create table model
 (
     "IDmodel"    serial
@@ -78,9 +60,6 @@ create table model
         constraint "model_fk_IDproizvodac_idproizvodac"
             references proizvodac
 );
-
-alter table model
-    owner to postgres;
 
 create table vozilo
 (
@@ -101,9 +80,6 @@ create table vozilo
             references model,
     pregled              timestamp
 );
-
-alter table vozilo
-    owner to postgres;
 
 create table najam
 (
@@ -128,9 +104,6 @@ create table najam
     vrijedido             timestamp
 );
 
-alter table najam
-    owner to postgres;
-
 create table osiguranjenajma
 (
     "Idosiguranje" integer not null
@@ -143,9 +116,6 @@ create table osiguranjenajma
         primary key ("Idosiguranje", "Idnajam")
 );
 
-alter table osiguranjenajma
-    owner to postgres;
-
 create table racun
 (
     "IDracun"       serial
@@ -157,55 +127,11 @@ create table racun
             references najam,
     idnacinplacanja integer not null
         constraint "racun_fk_IDnacinplacanja_idnacinplacanja"
-            references nacinplacanja
+            references nacinplacanja,
+    iskoristeno     boolean
 );
 
-alter table racun
-    owner to postgres;
-
-create function prevent_vehicle_rental_from_different_location() returns trigger
-    language plpgsql
-as
-$$
-BEGIN
-  IF (NEW.idlokacijaostavljanja != NEW.idlokacijapreuzimanja) THEN
-    RAISE EXCEPTION 'Vozilo se ne nalazi na istoj lokaciji na kojoj ga želite preuzeti.';
-  END IF;
-  RETURN NEW;
-END;
-$$;
-
-alter function prevent_vehicle_rental_from_different_location() owner to postgres;
-
-create trigger prevent_vehicle_rental_from_different_location
-    before insert or update
-    on najam
-    for each row
-execute procedure prevent_vehicle_rental_from_different_location();
-
-create function update_vehicle_location_on_return() returns trigger
-    language plpgsql
-as
-$$
-BEGIN
-  IF (NEW.idlokacijaostavljanja != OLD.idlokacijapreuzimanja) THEN
-    UPDATE vozilo
-    SET idlokacijavozila = NEW.idlokacijaostavljanja
-    WHERE IDvozilo = NEW.idvozilo;
-  END IF;
-  RETURN NEW;
-END;
-$$;
-
-alter function update_vehicle_location_on_return() owner to postgres;
-
-create trigger update_vehicle_location_on_return
-    after insert or update
-    on najam
-    for each row
-execute procedure update_vehicle_location_on_return();
-
-create function check_rental_validity() returns trigger
+create or replace function check_rental_validity() returns trigger
     language plpgsql
 as
 $$
@@ -219,37 +145,13 @@ BEGIN
 END;
 $$;
 
-alter function check_rental_validity() owner to postgres;
-
 create trigger check_rental_validity
     before insert or update
     on najam
     for each row
 execute procedure check_rental_validity();
 
-create function prevent_double_rentals() returns trigger
-    language plpgsql
-as
-$$
-BEGIN
-  IF (NEW.datumzavrsetkanajma IS NULL AND (SELECT COUNT(*) FROM najam WHERE idklijent = NEW.idklijent AND najam.datumzavrsetkanajma IS NULL) > 0) THEN
-    RAISE EXCEPTION 'Ovaj klijent već ima aktivni najam vozila.';
-  ELSIF (NEW.datumzavrsetkanajma IS NULL AND (SELECT COUNT(*) FROM najam WHERE idvozilo = NEW.idvozilo AND najam.datumzavrsetkanajma IS NULL) > 0) THEN
-    RAISE EXCEPTION 'Ovo vozilo je već iznajmljeno.';
-  END IF;
-  RETURN NEW;
-END;
-$$;
-
-alter function prevent_double_rentals() owner to postgres;
-
-create trigger prevent_double_rentals
-    before insert or update
-    on najam
-    for each row
-execute procedure prevent_double_rentals();
-
-create function prevent_frequent_rentals() returns trigger
+create or replace function prevent_frequent_rentals() returns trigger
     language plpgsql
 as
 $$
@@ -263,15 +165,13 @@ BEGIN
 END;
 $$;
 
-alter function prevent_frequent_rentals() owner to postgres;
-
 create trigger prevent_frequent_rentals
     before insert or update
     on najam
     for each row
 execute procedure prevent_frequent_rentals();
 
-create function prevent_unavailable_rentals() returns trigger
+create or replace function prevent_unavailable_rentals() returns trigger
     language plpgsql
 as
 $$
@@ -283,35 +183,13 @@ BEGIN
 END;
 $$;
 
-alter function prevent_unavailable_rentals() owner to postgres;
-
 create trigger prevent_unavailable_rentals
     before insert or update
     on najam
     for each row
 execute procedure prevent_unavailable_rentals();
 
-create function check_vehicle_year() returns trigger
-    language plpgsql
-as
-$$
-BEGIN
-  IF (NEW.godinaproizvodnje < EXTRACT(YEAR FROM NOW())) THEN
-    RAISE EXCEPTION 'Godina proizvodnje ne može biti manja od trenutne godine.';
-  END IF;
-  RETURN NEW;
-END;
-$$;
-
-alter function check_vehicle_year() owner to postgres;
-
-create trigger check_vehicle_year
-    before insert or update
-    on vozilo
-    for each row
-execute procedure check_vehicle_year();
-
-create function check_vehicle_inspection_status() returns trigger
+create or replace function check_vehicle_inspection_status() returns trigger
     language plpgsql
 as
 $$
@@ -323,29 +201,110 @@ BEGIN
 END;
 $$;
 
-alter function check_vehicle_inspection_status() owner to postgres;
-
 create trigger check_vehicle_inspection_status
     before insert or update
     on vozilo
     for each row
 execute procedure check_vehicle_inspection_status();
 
-create function apply_rental_discount() returns trigger
+create or replace function prevent_vehicle_rental_from_different_location() returns trigger
     language plpgsql
 as
 $$
 BEGIN
-  IF (NEW.datumzavrsetkanajma - NEW.datumpocetkanajma > 14) THEN
-    UPDATE racun
-    SET iznos = iznos * 0.9
-    WHERE racun.idnajam = NEW."IDnajam";
-  END IF;
-  RETURN NEW;
+    IF (OLD.idlokacijaostavljanja != NEW.idlokacijapreuzimanja) THEN
+        RAISE EXCEPTION 'Vozilo se ne nalazi na istoj lokaciji na kojoj ga želite preuzeti.';
+    END IF;
+    RETURN NEW;
 END;
 $$;
 
-alter function apply_rental_discount() owner to postgres;
+create trigger prevent_vehicle_rental_from_different_location
+    before insert or update
+    on najam
+    for each row
+execute procedure prevent_vehicle_rental_from_different_location();
+
+create or replace function update_vehicle_location_on_return() returns trigger
+    language plpgsql
+as
+$$
+BEGIN
+    IF (NEW.idlokacijaostavljanja != OLD.idlokacijapreuzimanja) THEN
+        UPDATE vozilo
+        SET idlokacijavozila = NEW.idlokacijaostavljanja
+        WHERE vozilo."IDvozilo" = NEW."idvozilo";
+    END IF;
+    RETURN NEW;
+END;
+$$;
+
+create trigger update_vehicle_location_on_return
+    after insert or update
+    on najam
+    for each row
+execute procedure update_vehicle_location_on_return();
+
+create or replace function prevent_double_rentals() returns trigger
+    language plpgsql
+as
+$$
+BEGIN
+    -- Provjera je li najam nekog klijenta aktivan
+    IF (NEW.datumzavrsetkanajma IS NULL AND
+        (SELECT COUNT(*) FROM najam WHERE idklijent = NEW.idklijent AND najam.datumzavrsetkanajma IS NULL) > 0) THEN
+        RAISE EXCEPTION 'Ovaj klijent već ima aktivni najam vozila.';
+    -- Provjera je li klijent već iznajmio neko vozilo u rasponu od datuma početka najma do datuma završetka najma
+    ELSIF (NEW.datumzavrsetkanajma IS NULL AND
+        (SELECT COUNT(*) FROM najam WHERE idklijent = NEW.idklijent AND datumpocetkanajma <= NEW.datumpocetkanajma AND datumzavrsetkanajma >= NEW.datumpocetkanajma) > 0) THEN
+        RAISE EXCEPTION 'Ovaj klijent već ima iznajmljeno vozilo u odabranom vremenskom rasponu.';
+    -- Provjera je li najam nekog vozila aktivan
+    ELSIF (NEW.datumzavrsetkanajma IS NULL AND
+           (SELECT COUNT(*) FROM najam WHERE idvozilo = NEW.idvozilo AND najam.datumzavrsetkanajma IS NULL) > 0) THEN
+        RAISE EXCEPTION 'Ovo vozilo je već iznajmljeno.';
+    -- Provjera je li vozilo već iznajmljeno u rasponu od datuma početka najma do datuma završetka najma
+    ELSIF (NEW.datumzavrsetkanajma IS NULL AND
+           (SELECT COUNT(*) FROM najam WHERE idvozilo = NEW.idvozilo AND datumpocetkanajma <= NEW.datumpocetkanajma AND datumzavrsetkanajma >= NEW.datumpocetkanajma) > 0) THEN
+        RAISE EXCEPTION 'Ovo vozilo je već iznajmljeno u odabranom vremenskom rasponu.';
+    END IF;
+    RETURN NEW;
+END;
+$$;
+
+create trigger prevent_double_rentals
+    before insert or update
+    on najam
+    for each row
+execute procedure prevent_double_rentals();
+
+create or replace function apply_rental_discount() returns trigger
+    language plpgsql
+as
+$$
+DECLARE
+    idracun integer;
+    iskor boolean;
+BEGIN
+    -- Dohvaćanje ID-a računa za određeni najam
+    SELECT "IDracun" INTO idracun FROM racun WHERE racun.idnajam = NEW."IDnajam";
+    -- Provjera da li je okidač već izvršen
+    SELECT iskoristeno into iskor FROM racun WHERE "IDracun" = idracun;
+    IF (iskor=true) THEN
+        RETURN NEW;
+    END IF;
+    -- Provjera da li je razdoblje najma veće od 14 dana
+    IF (NEW.datumzavrsetkanajma - NEW.datumpocetkanajma > 14) THEN
+        -- Dohvaćanje ID-a računa za određeni najam
+        SELECT "IDracun" INTO idracun FROM racun WHERE idnajam = NEW."IDnajam";
+        -- Ažuriranje računa
+        UPDATE racun
+        SET iznos       = iznos * 0.9,
+            iskoristeno = true
+        WHERE racun."IDracun" = idracun;
+    END IF;
+    RETURN NEW;
+END;
+$$;
 
 create trigger apply_rental_discount
     after insert or update
