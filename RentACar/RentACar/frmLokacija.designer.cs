@@ -48,126 +48,122 @@
             this.dgvLokacije.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLokacije.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLokacije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLokacije.Location = new System.Drawing.Point(277, 94);
+            this.dgvLokacije.Location = new System.Drawing.Point(317, 144);
             this.dgvLokacije.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLokacije.Name = "dgvLokacije";
             this.dgvLokacije.RowHeadersWidth = 51;
             this.dgvLokacije.Size = new System.Drawing.Size(607, 265);
-            this.dgvLokacije.TabIndex = 21;
+            this.dgvLokacije.TabIndex = 32;
             // 
             // btnPrikazi
             // 
             this.btnPrikazi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPrikazi.Location = new System.Drawing.Point(146, 330);
+            this.btnPrikazi.Location = new System.Drawing.Point(186, 380);
             this.btnPrikazi.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrikazi.Name = "btnPrikazi";
             this.btnPrikazi.Size = new System.Drawing.Size(100, 28);
-            this.btnPrikazi.TabIndex = 20;
+            this.btnPrikazi.TabIndex = 31;
             this.btnPrikazi.Text = "Prikaži";
             this.btnPrikazi.UseVisualStyleBackColor = true;
-            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
             // 
             // btnAzuriraj
             // 
             this.btnAzuriraj.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAzuriraj.Location = new System.Drawing.Point(23, 330);
+            this.btnAzuriraj.Location = new System.Drawing.Point(63, 380);
             this.btnAzuriraj.Margin = new System.Windows.Forms.Padding(4);
             this.btnAzuriraj.Name = "btnAzuriraj";
             this.btnAzuriraj.Size = new System.Drawing.Size(100, 28);
-            this.btnAzuriraj.TabIndex = 19;
+            this.btnAzuriraj.TabIndex = 30;
             this.btnAzuriraj.Text = "Ažuriraj";
             this.btnAzuriraj.UseVisualStyleBackColor = true;
-            this.btnAzuriraj.Click += new System.EventHandler(this.btnAzuriraj_Click);
             // 
             // btnObrisi
             // 
             this.btnObrisi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnObrisi.Location = new System.Drawing.Point(146, 271);
+            this.btnObrisi.Location = new System.Drawing.Point(186, 321);
             this.btnObrisi.Margin = new System.Windows.Forms.Padding(4);
             this.btnObrisi.Name = "btnObrisi";
             this.btnObrisi.Size = new System.Drawing.Size(100, 28);
-            this.btnObrisi.TabIndex = 18;
+            this.btnObrisi.TabIndex = 29;
             this.btnObrisi.Text = "Obriši";
             this.btnObrisi.UseVisualStyleBackColor = true;
-            this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
             // 
             // btnKreiraj
             // 
             this.btnKreiraj.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnKreiraj.Location = new System.Drawing.Point(23, 271);
+            this.btnKreiraj.Location = new System.Drawing.Point(63, 321);
             this.btnKreiraj.Margin = new System.Windows.Forms.Padding(4);
             this.btnKreiraj.Name = "btnKreiraj";
             this.btnKreiraj.Size = new System.Drawing.Size(100, 28);
-            this.btnKreiraj.TabIndex = 17;
+            this.btnKreiraj.TabIndex = 28;
             this.btnKreiraj.Text = "Kreiraj";
             this.btnKreiraj.UseVisualStyleBackColor = true;
-            this.btnKreiraj.Click += new System.EventHandler(this.btnKreiraj_Click);
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 207);
+            this.label3.Location = new System.Drawing.Point(59, 257);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 16);
-            this.label3.TabIndex = 16;
+            this.label3.TabIndex = 27;
             this.label3.Text = "Grad:";
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 152);
+            this.label2.Location = new System.Drawing.Point(59, 202);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 16);
-            this.label2.TabIndex = 15;
+            this.label2.TabIndex = 26;
             this.label2.Text = "Adresa:";
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 98);
+            this.label1.Location = new System.Drawing.Point(59, 148);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 16);
-            this.label1.TabIndex = 14;
+            this.label1.TabIndex = 25;
             this.label1.Text = "Šifra lokacije:";
             // 
             // tbGrad
             // 
             this.tbGrad.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbGrad.Location = new System.Drawing.Point(114, 204);
+            this.tbGrad.Location = new System.Drawing.Point(154, 254);
             this.tbGrad.Margin = new System.Windows.Forms.Padding(4);
             this.tbGrad.Name = "tbGrad";
             this.tbGrad.Size = new System.Drawing.Size(132, 22);
-            this.tbGrad.TabIndex = 13;
+            this.tbGrad.TabIndex = 24;
             // 
             // tbAdresa
             // 
             this.tbAdresa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbAdresa.Location = new System.Drawing.Point(114, 148);
+            this.tbAdresa.Location = new System.Drawing.Point(154, 198);
             this.tbAdresa.Margin = new System.Windows.Forms.Padding(4);
             this.tbAdresa.Name = "tbAdresa";
             this.tbAdresa.Size = new System.Drawing.Size(132, 22);
-            this.tbAdresa.TabIndex = 12;
+            this.tbAdresa.TabIndex = 23;
             // 
             // tbID
             // 
             this.tbID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbID.Location = new System.Drawing.Point(114, 94);
+            this.tbID.Location = new System.Drawing.Point(154, 144);
             this.tbID.Margin = new System.Windows.Forms.Padding(4);
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(132, 22);
-            this.tbID.TabIndex = 11;
+            this.tbID.TabIndex = 22;
             // 
             // frmLokacija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 453);
+            this.ClientSize = new System.Drawing.Size(982, 553);
             this.Controls.Add(this.dgvLokacije);
             this.Controls.Add(this.btnPrikazi);
             this.Controls.Add(this.btnAzuriraj);
