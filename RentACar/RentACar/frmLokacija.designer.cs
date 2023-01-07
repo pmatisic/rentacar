@@ -58,7 +58,7 @@
             // btnPrikazi
             // 
             this.btnPrikazi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPrikazi.Location = new System.Drawing.Point(140, 330);
+            this.btnPrikazi.Location = new System.Drawing.Point(146, 330);
             this.btnPrikazi.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrikazi.Name = "btnPrikazi";
             this.btnPrikazi.Size = new System.Drawing.Size(100, 28);
@@ -82,7 +82,7 @@
             // btnObrisi
             // 
             this.btnObrisi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnObrisi.Location = new System.Drawing.Point(140, 271);
+            this.btnObrisi.Location = new System.Drawing.Point(146, 271);
             this.btnObrisi.Margin = new System.Windows.Forms.Padding(4);
             this.btnObrisi.Name = "btnObrisi";
             this.btnObrisi.Size = new System.Drawing.Size(100, 28);
@@ -139,7 +139,7 @@
             // tbGrad
             // 
             this.tbGrad.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbGrad.Location = new System.Drawing.Point(107, 204);
+            this.tbGrad.Location = new System.Drawing.Point(114, 204);
             this.tbGrad.Margin = new System.Windows.Forms.Padding(4);
             this.tbGrad.Name = "tbGrad";
             this.tbGrad.Size = new System.Drawing.Size(132, 22);
@@ -148,7 +148,7 @@
             // tbAdresa
             // 
             this.tbAdresa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbAdresa.Location = new System.Drawing.Point(107, 148);
+            this.tbAdresa.Location = new System.Drawing.Point(114, 148);
             this.tbAdresa.Margin = new System.Windows.Forms.Padding(4);
             this.tbAdresa.Name = "tbAdresa";
             this.tbAdresa.Size = new System.Drawing.Size(132, 22);
@@ -157,7 +157,7 @@
             // tbID
             // 
             this.tbID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbID.Location = new System.Drawing.Point(107, 94);
+            this.tbID.Location = new System.Drawing.Point(114, 94);
             this.tbID.Margin = new System.Windows.Forms.Padding(4);
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(132, 22);
