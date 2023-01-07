@@ -41,7 +41,7 @@ namespace RentACar
             con.Open();
             NpgsqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into kategorija values('" + tbID.Text + "', '" + tbNaziv.Text + "')";
+            cmd.CommandText = "insert into kategorija values('" + tbID.Text + "', '" + tbNaziv.Text + "');";
             cmd.ExecuteNonQuery();
             con.Close();
             prikazi_podatke();
@@ -53,7 +53,7 @@ namespace RentACar
             con.Open();
             NpgsqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "update kategorija set \"naziv\"='" + tbNaziv.Text + "' where \"IDkategorija\"='" + tbID.Text + "'";
+            cmd.CommandText = "update kategorija set \"naziv\"='" + tbNaziv.Text + "' where \"IDkategorija\"='" + tbID.Text + "';";
             cmd.ExecuteNonQuery();
             con.Close();
             prikazi_podatke();
@@ -65,7 +65,7 @@ namespace RentACar
             con.Open();
             NpgsqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "delete from kategorija where naziv='" + tbNaziv.Text + "'";
+            cmd.CommandText = "delete from kategorija where naziv='" + tbNaziv.Text + "';";
             cmd.ExecuteNonQuery();
             con.Close();
             prikazi_podatke();

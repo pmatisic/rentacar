@@ -44,7 +44,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(284, 350);
+            this.label1.Location = new System.Drawing.Point(335, 351);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 16);
@@ -54,7 +54,7 @@
             // btnPrikazi
             // 
             this.btnPrikazi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPrikazi.Location = new System.Drawing.Point(657, 393);
+            this.btnPrikazi.Location = new System.Drawing.Point(708, 394);
             this.btnPrikazi.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrikazi.Name = "btnPrikazi";
             this.btnPrikazi.Size = new System.Drawing.Size(100, 28);
@@ -66,7 +66,7 @@
             // btnAzuriraj
             // 
             this.btnAzuriraj.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAzuriraj.Location = new System.Drawing.Point(154, 393);
+            this.btnAzuriraj.Location = new System.Drawing.Point(205, 394);
             this.btnAzuriraj.Margin = new System.Windows.Forms.Padding(4);
             this.btnAzuriraj.Name = "btnAzuriraj";
             this.btnAzuriraj.Size = new System.Drawing.Size(100, 28);
@@ -78,7 +78,7 @@
             // btnObrisi
             // 
             this.btnObrisi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnObrisi.Location = new System.Drawing.Point(262, 393);
+            this.btnObrisi.Location = new System.Drawing.Point(313, 394);
             this.btnObrisi.Margin = new System.Windows.Forms.Padding(4);
             this.btnObrisi.Name = "btnObrisi";
             this.btnObrisi.Size = new System.Drawing.Size(100, 28);
@@ -90,7 +90,7 @@
             // btnKreiraj
             // 
             this.btnKreiraj.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnKreiraj.Location = new System.Drawing.Point(46, 393);
+            this.btnKreiraj.Location = new System.Drawing.Point(97, 394);
             this.btnKreiraj.Margin = new System.Windows.Forms.Padding(4);
             this.btnKreiraj.Name = "btnKreiraj";
             this.btnKreiraj.Size = new System.Drawing.Size(100, 28);
@@ -103,7 +103,7 @@
             // 
             this.dgvKategorije.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvKategorije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKategorije.Location = new System.Drawing.Point(135, 30);
+            this.dgvKategorije.Location = new System.Drawing.Point(186, 31);
             this.dgvKategorije.Margin = new System.Windows.Forms.Padding(4);
             this.dgvKategorije.Name = "dgvKategorije";
             this.dgvKategorije.RowHeadersWidth = 51;
@@ -113,7 +113,7 @@
             // tbNaziv
             // 
             this.tbNaziv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbNaziv.Location = new System.Drawing.Point(399, 347);
+            this.tbNaziv.Location = new System.Drawing.Point(450, 348);
             this.tbNaziv.Margin = new System.Windows.Forms.Padding(4);
             this.tbNaziv.Name = "tbNaziv";
             this.tbNaziv.Size = new System.Drawing.Size(132, 22);
@@ -122,7 +122,7 @@
             // tbID
             // 
             this.tbID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbID.Location = new System.Drawing.Point(399, 317);
+            this.tbID.Location = new System.Drawing.Point(450, 318);
             this.tbID.Margin = new System.Windows.Forms.Padding(4);
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(132, 22);
@@ -132,7 +132,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(284, 320);
+            this.label2.Location = new System.Drawing.Point(335, 321);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 16);
@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(902, 453);
             this.Controls.Add(this.tbID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbNaziv);

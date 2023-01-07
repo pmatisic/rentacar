@@ -28,7 +28,7 @@ namespace RentACar
             con.Open();
             NpgsqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select model.naziv as \"Naziv modela\", najam.datumpocetkanajma as \"Početak najma\", najam.datumzavrsetkanajma as \"Završetak najma\" from model, vozilo, najam where vozilo.idmodel=model.\"IDmodel\" and najam.idvozilo=vozilo.\"IDvozilo\" and model.\"naziv\"='" + tbModel.Text + "'";
+            cmd.CommandText = "select model.naziv as \"Naziv modela\", najam.datumpocetkanajma as \"Početak najma\", najam.datumzavrsetkanajma as \"Završetak najma\" from model, vozilo, najam where vozilo.idmodel=model.\"IDmodel\" and najam.idvozilo=vozilo.\"IDvozilo\" and model.\"naziv\"='" + tbModel.Text + "';";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
@@ -41,7 +41,7 @@ namespace RentACar
             con.Open();
             NpgsqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select klijent.ime as \"Ime klijenta\", klijent.prezime as \"Prezime klijenta\", proizvodac.naziv as \"Proizvođač auta\", model.naziv as \"Naziv modela auta\", najam.datumpocetkanajma as \"Početak najma\", najam.datumzavrsetkanajma as \"Završetak najma\" from klijent join najam on (klijent.\"IDklijent\" = najam.idklijent) join vozilo on (vozilo.\"IDvozilo\"=najam.idvozilo) join model on (model.\"IDmodel\"=vozilo.idmodel) join proizvodac on (proizvodac.\"IDproizvodac\"=model.idproizvodac) where klijent.ime='" + tbKlijent.Text + "'";
+            cmd.CommandText = "select klijent.ime as \"Ime klijenta\", klijent.prezime as \"Prezime klijenta\", proizvodac.naziv as \"Proizvođač auta\", model.naziv as \"Naziv modela auta\", najam.datumpocetkanajma as \"Početak najma\", najam.datumzavrsetkanajma as \"Završetak najma\" from klijent join najam on (klijent.\"IDklijent\" = najam.idklijent) join vozilo on (vozilo.\"IDvozilo\"=najam.idvozilo) join model on (model.\"IDmodel\"=vozilo.idmodel) join proizvodac on (proizvodac.\"IDproizvodac\"=model.idproizvodac) where klijent.ime='" + tbKlijent.Text + "';";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
@@ -67,7 +67,7 @@ namespace RentACar
             con.Open();
             NpgsqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select (select grad from lokacija where lokacija.\"IDlokacija\"=vozilo.idlokacijavozila) as \"Grad\", vozilo.registracijskeoznake as \"Registracijska oznaka\", proizvodac.naziv as \"Proizvođač auta\", (select model.naziv from model where model.\"IDmodel\"=vozilo.idmodel) as \"Model auta\" from vozilo join najam on (najam.idvozilo=vozilo.\"IDvozilo\") join model on (model.\"IDmodel\"=vozilo.idmodel) join proizvodac on (proizvodac.\"IDproizvodac\"=model.idproizvodac) where najam.datumzavrsetkanajma is not null and (select lokacija.\"grad\" from lokacija where lokacija.\"IDlokacija\"=vozilo.idlokacijavozila)='" + tbLokacija.Text + "' except select (select grad from lokacija where lokacija.\"IDlokacija\"=vozilo.idlokacijavozila) as \"Grad\", vozilo.registracijskeoznake as \"Registracijska oznaka\", proizvodac.naziv as \"Proizvođač auta\", (select model.naziv from model where Model.\"IDmodel\"=vozilo.idmodel) as \"Model auta\" from vozilo join najam on (najam.idvozilo=vozilo.\"IDvozilo\") join model on (model.\"IDmodel\"=vozilo.idmodel) join proizvodac on (proizvodac.\"IDproizvodac\"=model.idproizvodac) where najam.datumzavrsetkanajma is null and (select lokacija.\"grad\" from lokacija where lokacija.\"IDlokacija\"=vozilo.idlokacijavozila)='" + tbLokacija.Text + "'";
+            cmd.CommandText = "select (select grad from lokacija where lokacija.\"IDlokacija\"=vozilo.idlokacijavozila) as \"Grad\", vozilo.registracijskeoznake as \"Registracijska oznaka\", proizvodac.naziv as \"Proizvođač auta\", (select model.naziv from model where model.\"IDmodel\"=vozilo.idmodel) as \"Model auta\" from vozilo join najam on (najam.idvozilo=vozilo.\"IDvozilo\") join model on (model.\"IDmodel\"=vozilo.idmodel) join proizvodac on (proizvodac.\"IDproizvodac\"=model.idproizvodac) where najam.datumzavrsetkanajma is not null and (select lokacija.\"grad\" from lokacija where lokacija.\"IDlokacija\"=vozilo.idlokacijavozila)='" + tbLokacija.Text + "' except select (select grad from lokacija where lokacija.\"IDlokacija\"=vozilo.idlokacijavozila) as \"Grad\", vozilo.registracijskeoznake as \"Registracijska oznaka\", proizvodac.naziv as \"Proizvođač auta\", (select model.naziv from model where Model.\"IDmodel\"=vozilo.idmodel) as \"Model auta\" from vozilo join najam on (najam.idvozilo=vozilo.\"IDvozilo\") join model on (model.\"IDmodel\"=vozilo.idmodel) join proizvodac on (proizvodac.\"IDproizvodac\"=model.idproizvodac) where najam.datumzavrsetkanajma is null and (select lokacija.\"grad\" from lokacija where lokacija.\"IDlokacija\"=vozilo.idlokacijavozila)='" + tbLokacija.Text + "';";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
