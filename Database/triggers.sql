@@ -56,29 +56,7 @@ CREATE TRIGGER check_rental_validity
     FOR EACH ROW
 EXECUTE PROCEDURE check_rental_validity();
 
----Trigger 4 (stari)---
-CREATE OR REPLACE FUNCTION prevent_double_rentals()
-    RETURNS TRIGGER AS
-$$
-BEGIN
-    IF (NEW.datumzavrsetkanajma IS NULL AND
-        (SELECT COUNT(*) FROM najam WHERE idklijent = NEW.idklijent AND najam.datumzavrsetkanajma IS NULL) > 0) THEN
-        RAISE EXCEPTION 'Ovaj klijent već ima aktivni najam vozila.';
-    ELSIF (NEW.datumzavrsetkanajma IS NULL AND
-           (SELECT COUNT(*) FROM najam WHERE idvozilo = NEW.idvozilo AND najam.datumzavrsetkanajma IS NULL) > 0) THEN
-        RAISE EXCEPTION 'Ovo vozilo je već iznajmljeno.';
-    END IF;
-    RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
-CREATE TRIGGER prevent_double_rentals
-    BEFORE INSERT OR UPDATE
-    ON najam
-    FOR EACH ROW
-EXECUTE PROCEDURE prevent_double_rentals();
-
----Trigger 4 (novi)---
+---Trigger 4---
 CREATE OR REPLACE FUNCTION prevent_double_rentals()
     RETURNS TRIGGER AS
 $$
@@ -87,7 +65,7 @@ BEGIN
     IF (NEW.datumzavrsetkanajma IS NULL AND
         (SELECT COUNT(*) FROM najam WHERE idklijent = NEW.idklijent AND najam.datumzavrsetkanajma IS NULL) > 0) THEN
         RAISE EXCEPTION 'Ovaj klijent već ima aktivni najam vozila.';
-        -- Provjera je li klijent već iznajmio neko vozilo u rasponu od datuma početka najma do datuma završetka najma
+    -- Provjera je li klijent već iznajmio neko vozilo u rasponu od datuma početka najma do datuma završetka najma
     ELSIF (NEW.datumzavrsetkanajma IS NULL AND
            (SELECT COUNT(*)
             FROM najam
@@ -95,11 +73,11 @@ BEGIN
               AND datumpocetkanajma <= NEW.datumpocetkanajma
               AND datumzavrsetkanajma >= NEW.datumpocetkanajma) > 0) THEN
         RAISE EXCEPTION 'Ovaj klijent već ima iznajmljeno vozilo u odabranom vremenskom rasponu.';
-        -- Provjera je li najam nekog vozila aktivan
+    -- Provjera je li najam nekog vozila aktivan
     ELSIF (NEW.datumzavrsetkanajma IS NULL AND
            (SELECT COUNT(*) FROM najam WHERE idvozilo = NEW.idvozilo AND najam.datumzavrsetkanajma IS NULL) > 0) THEN
         RAISE EXCEPTION 'Ovo vozilo je već iznajmljeno.';
-        -- Provjera je li vozilo već iznajmljeno u rasponu od datuma početka najma do datuma završetka najma
+    -- Provjera je li vozilo već iznajmljeno u rasponu od datuma početka najma do datuma završetka najma
     ELSIF (NEW.datumzavrsetkanajma IS NULL AND
            (SELECT COUNT(*)
             FROM najam

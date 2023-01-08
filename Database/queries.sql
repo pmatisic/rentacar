@@ -1,3 +1,28 @@
+---Upit 1---
+select model.naziv               as "Naziv modela",
+       najam.datumpocetkanajma   as "Početak najma",
+       najam.datumzavrsetkanajma as "Završetak najma"
+from model,
+     vozilo,
+     najam
+where vozilo.idmodel = model."IDmodel"
+  and najam.idvozilo = vozilo."IDvozilo"
+  and model."naziv" = 'Octavia';
+
+---Upit 2---
+select klijent.ime               as "Ime klijenta",
+       klijent.prezime           as "Prezime klijenta",
+       proizvodac.naziv          as "Proizvođač auta",
+       model.naziv               as "Naziv modela auta",
+       najam.datumpocetkanajma   as "Početak najma",
+       najam.datumzavrsetkanajma as "Završetak najma"
+from klijent
+         join najam on (klijent."IDklijent" = najam.idklijent)
+         join vozilo on (vozilo."IDvozilo" = najam.idvozilo)
+         join model on (model."IDmodel" = vozilo.idmodel)
+         join proizvodac on (proizvodac."IDproizvodac" = model.idproizvodac)
+where klijent.ime = 'Petar';
+
 ---Upit 3---
 select proizvodac.naziv        as "Proizvođač auta",
        model.naziv             as "Model auta",
