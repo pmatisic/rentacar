@@ -54,7 +54,7 @@ namespace RentACar
                 prikazi_podatke();
                 MessageBox.Show("Zapis je unesen u bazu!");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

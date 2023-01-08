@@ -63,6 +63,7 @@
             this.btnPrikazi.TabIndex = 25;
             this.btnPrikazi.Text = "Prikaži";
             this.btnPrikazi.UseVisualStyleBackColor = true;
+            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
             // 
             // btnAzuriraj
             // 
@@ -74,6 +75,7 @@
             this.btnAzuriraj.TabIndex = 24;
             this.btnAzuriraj.Text = "Ažuriraj";
             this.btnAzuriraj.UseVisualStyleBackColor = true;
+            this.btnAzuriraj.Click += new System.EventHandler(this.btnAzuriraj_Click);
             // 
             // btnObrisi
             // 
@@ -85,6 +87,7 @@
             this.btnObrisi.TabIndex = 23;
             this.btnObrisi.Text = "Obriši";
             this.btnObrisi.UseVisualStyleBackColor = true;
+            this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
             // 
             // btnKreiraj
             // 
@@ -96,6 +99,7 @@
             this.btnKreiraj.TabIndex = 22;
             this.btnKreiraj.Text = "Kreiraj";
             this.btnKreiraj.UseVisualStyleBackColor = true;
+            this.btnKreiraj.Click += new System.EventHandler(this.btnKreiraj_Click);
             // 
             // tbNaziv
             // 

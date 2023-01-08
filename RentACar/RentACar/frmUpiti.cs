@@ -36,6 +36,7 @@ namespace RentACar
             dgvUpit1.DataSource = dt;
             con.Close();
         }
+
         public void prikazi_podatke2()
         {
             con.Open();
@@ -49,6 +50,7 @@ namespace RentACar
             dgvUpit2.DataSource = dt;
             con.Close();
         }
+
         public void prikazi_podatke3()
         {
             con.Open();
@@ -62,6 +64,7 @@ namespace RentACar
             dgvUpit3.DataSource = dt;
             con.Close();
         }
+
         public void prikazi_podatke4()
         {
             con.Open();

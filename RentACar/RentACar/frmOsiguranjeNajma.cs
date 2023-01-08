@@ -42,26 +42,48 @@ namespace RentACar
 
         private void btnKreiraj_Click(object sender, EventArgs e)
         {
-            con.Open();
-            NpgsqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into osiguranjenajma values('" + tbIDos.Text + "', '" + tbIDnaj.Text + "');";
-            cmd.ExecuteNonQuery();
-            con.Close();
-            prikazi_podatke();
-            MessageBox.Show("Zapis je unesen u bazu!");
+            try
+            {
+                con.Open();
+                NpgsqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "insert into osiguranjenajma values('" + tbIDos.Text + "', '" + tbIDnaj.Text + "');";
+                cmd.ExecuteNonQuery();
+                con.Close();
+                prikazi_podatke();
+                MessageBox.Show("Zapis je unesen u bazu!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            con.Open();
-            NpgsqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "delete from osiguranjenajma where \"Idosiguranje\"='" + tbIDos.Text + "' and \"Idnajam\"='" + tbIDnaj.Text + "';";
-            cmd.ExecuteNonQuery();
-            con.Close();
-            prikazi_podatke();
-            MessageBox.Show("Zapis je obrisan iz baze!");
+            try
+            {
+                con.Open();
+                NpgsqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "delete from osiguranjenajma where \"Idosiguranje\"='" + tbIDos.Text + "' and \"Idnajam\"='" + tbIDnaj.Text + "';";
+                cmd.ExecuteNonQuery();
+                con.Close();
+                prikazi_podatke();
+                MessageBox.Show("Zapis je obrisan iz baze!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         private void btnAzuriraj_Click(object sender, EventArgs e)
@@ -71,7 +93,6 @@ namespace RentACar
                 con.Open();
                 NpgsqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                //Ovdje se ažurira samo osiguranje nekog najma jer nije moguće ažurirati tablicu 'osiguranjenajma' zbog njenih primarnih ključeva, točnije, nema smisla ju ažuriravati.
                 cmd.CommandText = "update osiguranjenajma set \"Idosiguranje\" = '" + tbIDos.Text + "' where \"Idnajam\"='" + tbIDnaj.Text + "';";
                 cmd.ExecuteNonQuery();
                 con.Close();

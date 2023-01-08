@@ -51,6 +51,7 @@ namespace RentACar
             prikazi_podatke();
             MessageBox.Show("Zapis je unesen u bazu!");
         }
+
         private void btnObrisi_Click(object sender, EventArgs e)
         {
             con.Open();
@@ -62,6 +63,7 @@ namespace RentACar
             prikazi_podatke();
             MessageBox.Show("Zapis je obrisan iz baze!");
         }
+
         private void btnAzuriraj_Click(object sender, EventArgs e)
         {
             con.Open();
